@@ -1,6 +1,13 @@
 package com.ywq;
 
+import java.util.HashSet;
+
 public class StringsCode {
+    /**
+     * 13. Roman to Integer
+     *
+     * @param s Easy
+     */
     public static int romanToInt(String s) {
         int result = 0;
         int length = s.length();
@@ -42,6 +49,11 @@ public class StringsCode {
         return 0;
     }
 
+    /**
+     * 14. Longest Common Prefix
+     *
+     * @param strs Easy
+     */
     public static String longestCommonPrefix(String[] strs) {
         if (strs.length == 1) {
             return strs[0];
@@ -59,5 +71,34 @@ public class StringsCode {
             }
         }
         return prefix;
+    }
+
+    /**
+     * 3. Longest Substring Without Repeating Characters
+     *
+     * @param s Medium
+     *          Pay attention to the substring not subsequences
+     */
+    public static int lengthOfLongestSubstring(String s) {
+        if (s.length() == 0) {
+            return 0;
+        }
+
+        int k = 0;
+        int length = s.length();
+        int max = 0;
+        HashSet<Character> hashSet = new HashSet<>();
+        for (int i = 0; i < length; i++) {
+            if (hashSet.contains(s.charAt(i))) {
+                while (k < i && hashSet.contains(s.charAt(i))) {
+                    hashSet.remove(s.charAt(k));
+                    k++;
+                }
+            }
+            hashSet.add(s.charAt(i));
+            max = Math.max(max, hashSet.size());
+        }
+
+        return max;
     }
 }
