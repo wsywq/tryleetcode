@@ -101,4 +101,17 @@ public class StringsCode {
 
         return max;
     }
+
+    /**
+     * @param str character and blank
+     * @return rts
+     * JDK11 or later, new StringBuilder(str).reverse().toString();
+     */
+    public static String reverseString(String str) {
+        StringBuilder stringBuilder = new StringBuilder(str.length());
+        for (int i = str.length() - 1; i >= 0; i--) {
+            stringBuilder.append(str.charAt(i));
+        }
+        return stringBuilder.toString();
+    }
 }
