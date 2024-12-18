@@ -1,6 +1,8 @@
 package com.ywq;
 
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class ArrayCode {
     public static int[] twoSum(int[] sums, int target) {
@@ -34,5 +36,34 @@ public class ArrayCode {
         }
 
         return ++k;
+    }
+
+    public static int maxLengthOfArray(int[] nums) {
+        HashSet<int[]> ints = new HashSet<>(Collections.singletonList(nums));
+        return ints.size();
+    }
+
+    /**
+     * 1. 有序数组去重
+     *
+     * @param nums easy
+     * @return without set
+     */
+    public static int maxLengthOfArray2(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+
+        int len = nums.length;
+        int index = 0;
+
+        for (int i = 1; i < len; i++) {
+            if (nums[index] != nums[i]) {
+                index++;
+                nums[index] = nums[i];
+            }
+        }
+
+        return ++index;
     }
 }
