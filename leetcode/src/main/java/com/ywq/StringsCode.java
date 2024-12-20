@@ -114,4 +114,24 @@ public class StringsCode {
         }
         return stringBuilder.toString();
     }
+
+    /**
+     *
+     * @param str character array
+     * @return
+     * without new array
+     * leetcode 344 easy
+     */
+    public static char[] reverseString2(char[] str) {
+        int i = 0;
+        int j = str.length - 1;
+        while (i < j) {
+            char temp = str[i];
+            str[i] = str[j];
+            str[j] = temp;
+            i++;
+            j--;
+        }
+        return str;
+    }
 }
