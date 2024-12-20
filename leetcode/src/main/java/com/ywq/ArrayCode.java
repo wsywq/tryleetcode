@@ -63,7 +63,39 @@ public class ArrayCode {
                 nums[index] = nums[i];
             }
         }
-
         return ++index;
+    }
+
+    /**
+     * remove element
+     * @param nums easy
+     * @param val value
+     * @return int
+     * leetcode 27
+     */
+    public static int removeElement(int[] nums, int val) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+
+        if (nums.length == 1) {
+            return nums[0] == val ? 0 : 1;
+        }
+
+        int left = 0;
+        int right = nums.length - 1;
+        while (left <= right) {
+            if (nums[left] == val) {
+                if (nums[right] != val) {
+                    nums[left] = nums[right];
+                    left++;
+                }
+                right--;
+            } else {
+                left++;
+            }
+        }
+
+        return left;
     }
 }
