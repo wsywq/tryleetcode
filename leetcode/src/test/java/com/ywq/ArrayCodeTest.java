@@ -26,4 +26,35 @@ public class ArrayCodeTest {
         int actual4 = ArrayCode.removeDuplicates(nums4);
         assertEquals(expected4, actual4);
     }
+
+    @Test
+    public void testAddString() {
+        // Test case 1: Normal addition
+        String num1 = "123";
+        String num2 = "456";
+        String expected = "579";
+        String result = ArrayCode.addString(num1, num2);
+        assertEquals(expected, result);
+
+        // Test case 2: With carry
+        num1 = "99";
+        num2 = "1";
+        expected = "100";
+        result = ArrayCode.addString(num1, num2);
+        assertEquals(expected, result);
+
+        // Test case 3: One number is empty
+        num1 = "123";
+        num2 = "";
+        expected = "123";
+        result = ArrayCode.addString(num1, num2);
+        assertEquals(expected, result);
+
+        // Test case 4: Both numbers are empty
+        num1 = "";
+        num2 = "";
+        expected = "";
+        result = ArrayCode.addString(num1, num2);
+        assertEquals(expected, result);
+    }
 }
