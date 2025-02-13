@@ -116,10 +116,8 @@ public class StringsCode {
     }
 
     /**
-     *
      * @param str character array
-     * @return
-     * without new array
+     * @return without new array
      * leetcode 344 easy
      */
     public static char[] reverseString2(char[] str) {
@@ -133,5 +131,32 @@ public class StringsCode {
             j--;
         }
         return str;
+    }
+
+    public static boolean isValid(String s) {
+        if (s.length() % 2 == 1) {
+            return false;
+        }
+
+        StringBuilder stack = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == '(' || c == '[' || c == '{') {
+                stack.append(c);
+            } else {
+                if (stack.length() != 0) {
+                    char p = stack.charAt(stack.length() - 1);
+                    if (p == '(' && c == ')' || p == '[' && c == ']' || p == '{' && c == '}') {
+                        stack.deleteCharAt(stack.length() - 1);
+                    } else {
+                        return false;
+                    }
+                } else {
+                    return false;
+                }
+            }
+        }
+
+        return stack.length() == 0;
     }
 }

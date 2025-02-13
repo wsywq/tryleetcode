@@ -1,8 +1,2 @@
-/.idea/.gitignore
-/.idea/compiler.xml
-/.idea/jarRepositories.xml
-/.idea/misc.xml
-/.idea/modules.xml
-/.idea/tryleetcode.iml
-/.idea/vcs.xml
-/.idea/uiDesigner.xml
+.idea
+

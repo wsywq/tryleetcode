@@ -2,6 +2,7 @@ package com.ywq.juc;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -17,6 +18,8 @@ public class ThreadPrint100 {
             conditions.add(condition);
             new Worker(i, conditions).start();
         }
+
+//        new ThreadPoolExecutor(10,20,100,100).execute();
     }
 
     static class Worker extends Thread {
