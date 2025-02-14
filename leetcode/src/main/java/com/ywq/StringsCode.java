@@ -196,4 +196,20 @@ public class StringsCode {
 
         return sign ? result : -result;
     }
+
+    public static int lengthOfLastWord(String s) {
+        int length = s.length();
+        int index = length - 1;
+
+        while (index > 0 && s.charAt(index) == ' ') {
+            index--;
+        }
+
+        int result = 0;
+        while (index >= 0 && s.charAt(index) != ' ') {
+            result++;
+            index--;
+        }
+        return result;
+    }
 }
