@@ -159,4 +159,41 @@ public class StringsCode {
 
         return stack.length() == 0;
     }
+
+    public static int myAtoi(String s) {
+        int length = s.length();
+        boolean sign = true;
+        int index = 0;
+        int result = 0;
+
+        // 跳过前导空格
+        while (index < length && s.charAt(index) == ' ') {
+            index++;
+        }
+        if (index == length) {
+            return 0;
+        }
+
+        // 处理符号
+        if (s.charAt(index) == '+' || s.charAt(index) == '-') {
+            sign = s.charAt(index) == '+';
+            index++;
+        }
+
+        // 处理数字
+        for (int i = index; i < length; i++) {
+            char c = s.charAt(i);
+            if (c < '0' || c > '9') {
+                break;
+            }
+            int digit = c - '0';
+            // 检查是否会溢出
+            if (result > (Integer.MAX_VALUE - digit) / 10) {
+                return sign ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+            }
+            result = result * 10 + digit;
+        }
+
+        return sign ? result : -result;
+    }
 }

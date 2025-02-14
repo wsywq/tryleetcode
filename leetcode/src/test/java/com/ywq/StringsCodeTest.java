@@ -52,7 +52,30 @@ public class StringsCodeTest {
         int expected4 = 3;
         int actual4 = StringsCode.lengthOfLongestSubstring(s4);
         assertEquals(expected4, actual4);
+    }
 
+    @Test
+    public void testMyAtoi() {
+        int result = StringsCode.myAtoi("42");
+        assertEquals(42, result);
+
+        result = StringsCode.myAtoi("   -42");
+        assertEquals(-42, result);
+
+        result = StringsCode.myAtoi("   -042");
+        assertEquals(-42, result);
+
+        result = StringsCode.myAtoi("0-1");
+        assertEquals(0, result);
+
+        result = StringsCode.myAtoi("world and 986");
+        assertEquals(0, result);
+
+        result = StringsCode.myAtoi("-91283472332");
+        assertEquals(-2147483648, result);
+
+        result = StringsCode.myAtoi("   +-42");
+        assertEquals(0, result);
 
     }
 }
