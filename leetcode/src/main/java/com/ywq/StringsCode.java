@@ -241,6 +241,10 @@ public class StringsCode {
         }
 
         return true;
+
+//        String result = s.replaceAll("[^a-zA-Z0-9]","").toLowerCase();
+//        StringBuilder stringBuilder = new StringBuilder(result);
+//        return result.contentEquals(stringBuilder.reverse());
     }
 
     private static boolean isLetterOrDigitCheck(char c) {
