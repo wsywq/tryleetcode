@@ -2,7 +2,7 @@ package com.ywq;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class StringsCodeTest {
     @Test
@@ -77,5 +77,26 @@ public class StringsCodeTest {
         result = StringsCode.myAtoi("   +-42");
         assertEquals(0, result);
 
+    }
+
+    @Test
+    public void testIsPalindrome() {
+        // 正常回文情况
+        assertTrue(StringsCode.isPalindrome("racecar"));
+
+        // 单个字符情况
+        assertTrue(StringsCode.isPalindrome("a"));
+
+        // 非回文情况
+        assertFalse(StringsCode.isPalindrome("hello"));
+
+        // 包含非字母和数字字符的回文情况
+        assertTrue(StringsCode.isPalindrome("A man, a plan, a canal: Panama"));
+
+        // 包含非字母和数字字符的非回文情况
+        assertFalse(StringsCode.isPalindrome("Not a palindrome"));
+
+        // 空字符串情况
+        assertTrue(StringsCode.isPalindrome(""));
     }
 }
