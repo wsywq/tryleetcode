@@ -19,7 +19,7 @@ public class DeWorkerThread extends Thread {
     public void run() {
         long lastActiveTime = System.currentTimeMillis();
         Runnable task;
-        while (!Thread.currentThread().isInterrupted() && !taskQueue.isEmpty()) {
+        while (!Thread.currentThread().isInterrupted() || !taskQueue.isEmpty()) {
             try {
                 // 从任务队列中取出任务并执行, 如果队列为空，则阻塞等待
                 task = taskQueue.poll(keepAliveTime, TimeUnit.MILLISECONDS);
