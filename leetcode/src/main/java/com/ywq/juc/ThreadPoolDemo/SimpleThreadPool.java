@@ -74,11 +74,11 @@ public class SimpleThreadPool implements DeThreadPool {
 
     @Override
     public void shutdown() {
+        System.out.printf("shutdown thread, count: %d, queue remainingCapacity : %d%n", threads.size(), taskQueue.remainingCapacity());
         isShutdown = true;
         for (DeWorkerThread thread : threads) {
             thread.interrupt();
         }
-        System.out.printf("shutdown thread, count: %d, queue remainingCapacity : %d%n", threads.size(), taskQueue.remainingCapacity());
     }
 
     @Override
